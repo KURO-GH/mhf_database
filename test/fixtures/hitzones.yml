@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  monster_variant: one
+  part_name: MyString
+  slash: 1
+  blunt: 1
+  shot: 1
+  fire: 1
+  water: 1
+  thunder: 1
+  dragon: 1
+  ice: 1
+  stun: 1
+
+two:
+  monster_variant: two
+  part_name: MyString
+  slash: 1
+  blunt: 1
+  shot: 1
+  fire: 1
+  water: 1
+  thunder: 1
+  dragon: 1
+  ice: 1
+  stun: 1
