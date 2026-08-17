@@ -1,0 +1,51 @@
+<h1>MHF モンスター肉質データベース</h1>
+
+<h2><%= @monster.name %></h2>
+
+<p>
+  <%= link_to "原種", monster_path(@monster, variant: "原種") %>
+  |
+  <%= link_to "変種", monster_path(@monster, variant: "変種") %>
+  |
+  <%= link_to "G級", monster_path(@monster, variant: "G級") %>
+</p>
+
+<h3><%= @variant.name %></h3>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>部位</th>
+      <th>切断</th>
+      <th>打撃</th>
+      <th>弾</th>
+      <th>火</th>
+      <th>水</th>
+      <th>雷</th>
+      <th>龍</th>
+      <th>氷</th>
+      <th>気絶</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hitzones.each do |hitzone| %>
+      <tr>
+        <td><%= hitzone.part_name %></td>
+        <td><%= hitzone.slash %></td>
+        <td><%= hitzone.blunt %></td>
+        <td><%= hitzone.shot %></td>
+        <td><%= hitzone.fire %></td>
+        <td><%= hitzone.water %></td>
+        <td><%= hitzone.thunder %></td>
+        <td><%= hitzone.dragon %></td>
+        <td><%= hitzone.ice %></td>
+        <td><%= hitzone.stun %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+  <%= link_to "モンスター一覧に戻る", monsters_path %>
+</p>
