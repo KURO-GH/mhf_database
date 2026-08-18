@@ -8,6 +8,7 @@ class MonstersController < ApplicationController
     "甲殻種",
     "古龍種",
     "牙竜種",
+    "海竜種",
     "獣竜種",
     "亜龍種"
   ].freeze

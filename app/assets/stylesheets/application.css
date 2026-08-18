@@ -13,3 +13,125 @@
  *= require_tree .
  *= require_self
  */
+.species-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  align-items: start;
+}
+
+.species-group:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.species-group:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.species-group:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.species-group:nth-child(4) {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.species-group:nth-child(5) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.species-group:nth-child(6) {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+.species-group:nth-child(7) {
+  grid-column: 4;
+  grid-row: 3;
+}
+
+.species-group:nth-child(8) {
+  grid-column: 4;
+  grid-row: 4;
+}
+
+.species-group:nth-child(9) {
+  grid-column: 4;
+  grid-row: 5;
+}
+
+.species-group h2 {
+  margin-bottom: 10px;
+}
+
+.species-group ul {
+  margin-top: 0;
+  padding-left: 2px;
+}
+
+.species-group li {
+  margin-bottom: 5px;
+}
+
+/* =========================
+   種族ごとの個別調整
+   ========================= */
+
+/* 鳥竜種 */
+.species-bird {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 飛竜種 */
+.species-flying {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 古龍種 */
+.species-elder {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 魚竜種 */
+.species-fish {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 牙獣種 */
+.species-fanged {
+  margin-top: -500px;
+  margin-bottom: 0;
+}
+
+/* 甲殻種 */
+.species-crustacean {
+  margin-top: -1000px;
+  margin-bottom: 0;
+}
+
+/* 海竜種 */
+.species-sea {
+  margin-top: -800px;
+  margin-bottom: 0;
+}
+
+/* 獣竜種 */
+.species-brute {
+  margin-top: -650px;
+  margin-bottom: 0;
+}
+
+/* 亜龍種 */
+.species-unknown {
+  margin-top: -400px;
+  margin-bottom: 0;
+}
