@@ -1,11 +1,17 @@
 <h1>MHF モンスター肉質データベース</h1>
 
-<h2>モンスター一覧</h2>
+<% MonstersController::SPECIES_ORDER.each do |species| %>
+<% monsters = @monsters_by_species[species] %>
 
-<ul>
-  <% @monsters.each do |monster| %>
-    <li>
-      <%= link_to monster.name, monster_path(monster) %>
-    </li>
-  <% end %>
-</ul>
+<% next if monsters.blank? %>
+
+  <h2><%= species %></h2>
+
+  <ul>
+    <% monsters.each do |monster| %>
+      <li>
+        <%= link_to monster.name, monster_path(monster) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

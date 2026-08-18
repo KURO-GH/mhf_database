@@ -1,3 +1,164 @@
+# モンスター一覧
+
+monsters = [
+
+# 鳥竜種
+
+{ name: "イャンガルルガ", species: "鳥竜種" },
+{ name: "イャンクック", species: "鳥竜種" },
+{ name: "イャンクック亜種", species: "鳥竜種" },
+{ name: "ゲリョス", species: "鳥竜種" },
+{ name: "ゲリョス亜種", species: "鳥竜種" },
+{ name: "ドスイーオス", species: "鳥竜種" },
+{ name: "ドスゲネポス", species: "鳥竜種" },
+{ name: "ドスランポス", species: "鳥竜種" },
+{ name: "トリドクレス", species: "鳥竜種" },
+{ name: "ヒプノック", species: "鳥竜種" },
+{ name: "ヒプノック繁殖", species: "鳥竜種" },
+{ name: "ヒプノック希少種", species: "鳥竜種" },
+{ name: "ファルノック", species: "鳥竜種" },
+{ name: "フォロクルル", species: "鳥竜種" },
+
+# 牙獣種
+
+{ name: "ヴォージャン", species: "牙獣種" },
+{ name: "カム・オルガロン", species: "牙獣種" },
+{ name: "ノノ・オルガロン", species: "牙獣種" },
+{ name: "ロロ・ゴウガルフ", species: "牙獣種" },
+{ name: "レイ・ゴウガルフ", species: "牙獣種" },
+{ name: "ゴゴモア", species: "牙獣種" },
+{ name: "ドスファンゴ", species: "牙獣種" },
+{ name: "ドドブランゴ", species: "牙獣種" },
+{ name: "ババコンガ", species: "牙獣種" },
+{ name: "ミドガロン", species: "牙獣種" },
+{ name: "ラージャン", species: "牙獣種" },
+
+# 飛竜種
+
+{ name: "アカムトルム", species: "飛竜種" },
+{ name: "アノルパティス", species: "飛竜種" },
+{ name: "UNKNOWN(ラ・ロ)", species: "飛竜種" },
+{ name: "エスピナス", species: "飛竜種" },
+{ name: "エスピナス亜種", species: "飛竜種" },
+{ name: "エスピナス希少種", species: "飛竜種" },
+{ name: "ヴァルサブロス", species: "飛竜種" },
+{ name: "オディバトラス", species: "飛竜種" },
+{ name: "グラビモス", species: "飛竜種" },
+{ name: "グラビモス亜種", species: "飛竜種" },
+{ name: "グレアドモス", species: "飛竜種" },
+{ name: "グレンゼブル", species: "飛竜種" },
+{ name: "ゼナセリス", species: "飛竜種" },
+{ name: "ゼルレウス", species: "飛竜種" },
+{ name: "セルレギオス", species: "飛竜種" },
+{ name: "ディアブロス", species: "飛竜種" },
+{ name: "ディアブロス亜種", species: "飛竜種" },
+{ name: "ディオレックス", species: "飛竜種" },
+{ name: "ティガレックス", species: "飛竜種" },
+{ name: "デュラガウア", species: "飛竜種" },
+{ name: "ドラギュロス", species: "飛竜種" },
+{ name: "ナルガクルガ", species: "飛竜種" },
+{ name: "バサルモス", species: "飛竜種" },
+{ name: "パリアプリア", species: "飛竜種" },
+{ name: "ヒュジキキ", species: "飛竜種" },
+{ name: "フルフル", species: "飛竜種" },
+{ name: "フルフル亜種", species: "飛竜種" },
+{ name: "ベリオロス", species: "飛竜種" },
+{ name: "ベルキュロス", species: "飛竜種" },
+{ name: "ボガバドルム", species: "飛竜種" },
+{ name: "ポボルバルム", species: "飛竜種" },
+{ name: "UNKNOWN(ミ・ル)", species: "飛竜種" },
+{ name: "メラギナス", species: "飛竜種" },
+{ name: "モノブロス", species: "飛竜種" },
+{ name: "モノブロス亜種", species: "飛竜種" },
+{ name: "リオレイア", species: "飛竜種" },
+{ name: "リオレイア亜種", species: "飛竜種" },
+{ name: "リオレイア希少種", species: "飛竜種" },
+{ name: "リオレウス", species: "飛竜種" },
+{ name: "リオレウス亜種", species: "飛竜種" },
+{ name: "リオレウス希少種", species: "飛竜種" },
+
+# 魚竜種
+
+{ name: "アルガノス", species: "魚竜種" },
+{ name: "ヴォルガノス", species: "魚竜種" },
+{ name: "ヴォルガノス亜種", species: "魚竜種" },
+{ name: "ガノトトス", species: "魚竜種" },
+{ name: "ガノトトス亜種", species: "魚竜種" },
+{ name: "ゴルガノス", species: "魚竜種" },
+{ name: "ドスガレオス", species: "魚竜種" },
+
+# 甲殻種
+
+{ name: "アクラ・ヴァシム", species: "甲殻種" },
+{ name: "アクラ・ジェビア", species: "甲殻種" },
+{ name: "タイクンザムザ", species: "甲殻種" },
+{ name: "ダイミョウザザミ", species: "甲殻種" },
+{ name: "シェンガオレン", species: "甲殻種" },
+{ name: "ショウグンギザミ", species: "甲殻種" },
+
+# 古龍種
+
+{ name: "アマツマガツチ", species: "古龍種" },
+{ name: "イナガミ", species: "古龍種" },
+{ name: "エルゼリオン", species: "古龍種" },
+{ name: "オオナズチ", species: "古龍種" },
+{ name: "ガルバダオラ", species: "古龍種" },
+{ name: "キリン", species: "古龍種" },
+{ name: "グァンゾルム", species: "古龍種" },
+{ name: "クシャルダオラ", species: "古龍種" },
+{ name: "ケオアルボル", species: "古龍種" },
+{ name: "シャガル・マガラ", species: "古龍種" },
+{ name: "シャンティエン", species: "古龍種" },
+{ name: "テオ・テスカトル", species: "古龍種" },
+{ name: "ディスフィロア", species: "古龍種" },
+{ name: "トア・テスカトラ", species: "古龍種" },
+{ name: "ドゥレムディラ", species: "古龍種" },
+{ name: "ナナ・テスカトリ", species: "古龍種" },
+{ name: "ハルドメルグ", species: "古龍種" },
+{ name: "ミラボレアス (黒龍)", species: "古龍種" },
+{ name: "ミラバルカン(紅龍)", species: "古龍種" },
+{ name: "ミラルーツ(祖龍)", species: "古龍種" },
+{ name: "ヤマクライ", species: "古龍種" },
+{ name: "ヤマツカミ", species: "古龍種" },
+{ name: "ラオシャンロン", species: "古龍種" },
+{ name: "ラオシャンロン亜種", species: "古龍種" },
+{ name: "ラヴィエンテ", species: "古龍種" },
+{ name: "ルコディオラ", species: "古龍種" },
+{ name: "レビディオラ", species: "古龍種" },
+
+# 牙竜種
+{ name: "ジンオウガ", species: "牙竜種" },
+{ name: "ジンオウガ亜種", species: "牙竜種" },
+
+# 海竜種
+
+{ name: "クアルセプス", species: "海竜種" },
+{ name: "バルラガル", species: "海竜種" },
+{ name: "ポカラドン", species: "海竜種" },
+
+# 獣竜種
+
+{ name: "アビオルグ", species: "獣竜種" },
+{ name: "イビルジョー", species: "獣竜種" },
+{ name: "ウラガンキン", species: "獣竜種" },
+{ name: "ガスラバズラ", species: "獣竜種" },
+{ name: "ギアオルグ", species: "獣竜種" },
+{ name: "ブラキディオス", species: "獣竜種" },
+
+# 亜龍種
+
+{ name: "ゴア・マガラ", species: "亜龍種" }
+]
+
+monsters.each_with_index do |monster_data, index|
+  monster = Monster.find_or_create_by!(name: monster_data[:name])
+
+  monster.update!(
+    species: monster_data[:species],
+    sort_order: index + 1
+  )
+end
+
 # リオレウス 原種
 monster = Monster.find_or_create_by!(name: "リオレウス")
 
