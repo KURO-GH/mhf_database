@@ -765,7 +765,313 @@ g_hitzones.each do |hitzone_data|
   end
 end
 
+# ========================================
+# イャンクック
+# ========================================
+
+monster = Monster.find_or_create_by!(name: "イャンクック")
+
+
+# ========================================
+# イャンクック 原種
+# ========================================
+
+normal_variant = monster.monster_variants.find_or_create_by!(name: "原種")
+
+normal_hitzones = [
+  {
+    part_name: "頭",
+    slash: 50,
+    blunt: 80,
+    shot: 100,
+    fire: 10,
+    water: 30,
+    thunder: 30,
+    dragon: 0,
+    ice: 40,
+    stun: 100
+  },
+  {
+    part_name: "首",
+    slash: 50,
+    blunt: 60,
+    shot: 50,
+    fire: 10,
+    water: 80,
+    thunder: 50,
+    dragon: 20,
+    ice: 50,
+    stun: 0
+  },
+  {
+    part_name: "背中",
+    slash: 40,
+    blunt: 50,
+    shot: 40,
+    fire: 10,
+    water: 20,
+    thunder: 15,
+    dragon: 0,
+    ice: 15,
+    stun: 0
+  },
+  {
+    part_name: "腹",
+    slash: 80,
+    blunt: 70,
+    shot: 80,
+    fire: 10,
+    water: 20,
+    thunder: 15,
+    dragon: 0,
+    ice: 15,
+    stun: 0
+  },
+  {
+    part_name: "尻尾",
+    slash: 50,
+    blunt: 60,
+    shot: 30,
+    fire: 10,
+    water: 20,
+    thunder: 15,
+    dragon: 0,
+    ice: 15,
+    stun: 0
+  },
+  {
+    part_name: "翼",
+    slash: 75,
+    blunt: 70,
+    shot: 70,
+    fire: 10,
+    water: 10,
+    thunder: 25,
+    dragon: 0,
+    ice: 15,
+    stun: 0
+  },
+  {
+    part_name: "脚",
+    slash: 25,
+    blunt: 30,
+    shot: 30,
+    fire: 5,
+    water: 5,
+    thunder: 5,
+    dragon: 0,
+    ice: 5,
+    stun: 0
+  }
+]
+
+normal_hitzones.each do |hitzone_data|
+  normal_variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+
+# ========================================
+# イャンクック 変種
+# ========================================
+
+variant = monster.monster_variants.find_or_create_by!(name: "変種")
+
+variant_hitzones = [
+  {
+    part_name: "頭",
+    slash: 45,
+    blunt: 55,
+    shot: 60,
+    fire: 10,
+    water: -5,
+    thunder: 5,
+    dragon: 0,
+    ice: 10,
+    stun: 100
+  },
+  {
+    part_name: "首",
+    slash: 45,
+    blunt: 30,
+    shot: 30,
+    fire: 10,
+    water: 50,
+    thunder: 5,
+    dragon: 0,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "背中",
+    slash: 40,
+    blunt: 50,
+    shot: 30,
+    fire: 10,
+    water: 10,
+    thunder: 5,
+    dragon: 0,
+    ice: 15,
+    stun: 0
+  },
+  {
+    part_name: "腹",
+    slash: 50,
+    blunt: 45,
+    shot: 40,
+    fire: 10,
+    water: 10,
+    thunder: 5,
+    dragon: 0,
+    ice: 45,
+    stun: 0
+  },
+  {
+    part_name: "尻尾",
+    slash: 50,
+    blunt: 60,
+    shot: 75,
+    fire: 10,
+    water: 20,
+    thunder: 5,
+    dragon: 40,
+    ice: 5,
+    stun: 0
+  },
+  {
+    part_name: "翼",
+    slash: 60,
+    blunt: 60,
+    shot: 50,
+    fire: 10,
+    water: 10,
+    thunder: 5,
+    dragon: 0,
+    ice: 5,
+    stun: 0
+  },
+  {
+    part_name: "脚",
+    slash: 25,
+    blunt: 30,
+    shot: 40,
+    fire: 0,
+    water: -5,
+    thunder: -5,
+    dragon: -5,
+    ice: -5,
+    stun: 0
+  }
+]
+
+variant_hitzones.each do |hitzone_data|
+  variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+
+# ========================================
+# イャンクック G級
+# ========================================
+
+g_variant = monster.monster_variants.find_or_create_by!(name: "G級")
+
+g_hitzones = [
+  {
+    part_name: "頭",
+    slash: 40,
+    blunt: 60,
+    shot: 80,
+    fire: 5,
+    water: 20,
+    thunder: 20,
+    dragon: 0,
+    ice: 30,
+    stun: 100
+  },
+  {
+    part_name: "首",
+    slash: 40,
+    blunt: 50,
+    shot: 40,
+    fire: 5,
+    water: 70,
+    thunder: 40,
+    dragon: 10,
+    ice: 40,
+    stun: 0
+  },
+  {
+    part_name: "背中",
+    slash: 30,
+    blunt: 40,
+    shot: 30,
+    fire: 5,
+    water: 10,
+    thunder: 5,
+    dragon: 0,
+    ice: 5,
+    stun: 0
+  },
+  {
+    part_name: "腹",
+    slash: 60,
+    blunt: 55,
+    shot: 60,
+    fire: 5,
+    water: 10,
+    thunder: 5,
+    dragon: 0,
+    ice: 5,
+    stun: 0
+  },
+  {
+    part_name: "尻尾",
+    slash: 40,
+    blunt: 40,
+    shot: 20,
+    fire: 5,
+    water: 10,
+    thunder: 5,
+    dragon: 0,
+    ice: 5,
+    stun: 0
+  },
+  {
+    part_name: "翼",
+    slash: 55,
+    blunt: 55,
+    shot: 50,
+    fire: 5,
+    water: 5,
+    thunder: 15,
+    dragon: 0,
+    ice: 5,
+    stun: 0
+  },
+  {
+    part_name: "脚",
+    slash: 20,
+    blunt: 25,
+    shot: 20,
+    fire: 5,
+    water: 5,
+    thunder: 5,
+    dragon: 0,
+    ice: 5,
+    stun: 0
+  }
+]
+
+g_hitzones.each do |hitzone_data|
+  g_variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
 
 puts "リオレウスの肉質データを登録しました！"
 puts "イャンガルルガの肉質データを登録しました！"
-
+puts "イャンクックの肉質データを登録しました！"
