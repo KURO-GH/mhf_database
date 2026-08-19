@@ -1,3 +1,4 @@
+
 # モンスター一覧
 
 monsters = [
@@ -127,6 +128,7 @@ monsters = [
 { name: "レビディオラ", species: "古龍種" },
 
 # 牙竜種
+
 { name: "ジンオウガ", species: "牙竜種" },
 { name: "ジンオウガ亜種", species: "牙竜種" },
 
@@ -159,8 +161,15 @@ monsters.each_with_index do |monster_data, index|
   )
 end
 
-# リオレウス 原種
+
+# ========================================
+# リオレウス
+# ========================================
+
 monster = Monster.find_or_create_by!(name: "リオレウス")
+
+
+# リオレウス 原種
 
 normal_variant = monster.monster_variants.find_or_create_by!(name: "原種")
 
@@ -252,15 +261,14 @@ normal_hitzones = [
 ]
 
 normal_hitzones.each do |hitzone_data|
-  normal_variant.hitzones.find_or_create_by!(
+  normal_variant.hitzones.find_or_initialize_by(
     part_name: hitzone_data[:part_name]
-  ) do |hitzone|
-    hitzone.assign_attributes(hitzone_data)
-  end
+  ).update!(hitzone_data)
 end
 
 
 # リオレウス 変種
+
 variant = monster.monster_variants.find_or_create_by!(name: "変種")
 
 hitzones = [
@@ -351,15 +359,14 @@ hitzones = [
 ]
 
 hitzones.each do |hitzone_data|
-  variant.hitzones.find_or_create_by!(
+  variant.hitzones.find_or_initialize_by(
     part_name: hitzone_data[:part_name]
-  ) do |hitzone|
-    hitzone.assign_attributes(hitzone_data)
-  end
+  ).update!(hitzone_data)
 end
 
 
 # リオレウス G級
+
 g_variant = monster.monster_variants.find_or_create_by!(name: "G級")
 
 g_hitzones = [
@@ -450,6 +457,307 @@ g_hitzones = [
 ]
 
 g_hitzones.each do |hitzone_data|
+  g_variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+
+# ========================================
+# イャンガルルガ
+# ========================================
+
+monster = Monster.find_or_create_by!(name: "イャンガルルガ")
+
+
+# イャンガルルガ 原種
+
+normal_variant = monster.monster_variants.find_or_create_by!(name: "原種")
+
+normal_hitzones = [
+  {
+    part_name: "頭",
+    slash: 55,
+    blunt: 50,
+    shot: 60,
+    fire: 0,
+    water: 20,
+    thunder: 0,
+    dragon: 5,
+    ice: 10,
+    stun: 100
+  },
+  {
+    part_name: "首",
+    slash: 40,
+    blunt: 40,
+    shot: 40,
+    fire: 0,
+    water: 30,
+    thunder: 0,
+    dragon: 5,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "背中",
+    slash: 10,
+    blunt: 10,
+    shot: 10,
+    fire: 5,
+    water: 70,
+    thunder: 5,
+    dragon: 15,
+    ice: 15,
+    stun: 0
+  },
+  {
+    part_name: "腹",
+    slash: 10,
+    blunt: 10,
+    shot: 60,
+    fire: 15,
+    water: 40,
+    thunder: 15,
+    dragon: 30,
+    ice: 30,
+    stun: 0
+  },
+  {
+    part_name: "尻尾",
+    slash: 40,
+    blunt: 10,
+    shot: 10,
+    fire: 5,
+    water: 30,
+    thunder: 5,
+    dragon: 15,
+    ice: 20,
+    stun: 0
+  },
+  {
+    part_name: "翼",
+    slash: 10,
+    blunt: 40,
+    shot: 10,
+    fire: 0,
+    water: 20,
+    thunder: 0,
+    dragon: 5,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "脚",
+    slash: 25,
+    blunt: 25,
+    shot: 25,
+    fire: 0,
+    water: 15,
+    thunder: 0,
+    dragon: 5,
+    ice: 10,
+    stun: 0
+  }
+]
+
+normal_hitzones.each do |hitzone_data|
+  normal_variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+
+# イャンガルルガ 変種
+
+variant = monster.monster_variants.find_or_create_by!(name: "変種")
+
+hitzones = [
+  {
+    part_name: "頭",
+    slash: 30,
+    blunt: 50,
+    shot: 40,
+    fire: 0,
+    water: 35,
+    thunder: 0,
+    dragon: 15,
+    ice: 0,
+    stun: 100
+  },
+  {
+    part_name: "首",
+    slash: 50,
+    blunt: 30,
+    shot: 45,
+    fire: 15,
+    water: -5,
+    thunder: 0,
+    dragon: 20,
+    ice: 0,
+    stun: 0
+  },
+  {
+    part_name: "背中",
+    slash: 35,
+    blunt: 30,
+    shot: 25,
+    fire: 0,
+    water: 10,
+    thunder: 0,
+    dragon: 0,
+    ice: 0,
+    stun: 0
+  },
+  {
+    part_name: "腹",
+    slash: 20,
+    blunt: 25,
+    shot: 20,
+    fire: 0,
+    water: 10,
+    thunder: 0,
+    dragon: 0,
+    ice: 0,
+    stun: 0
+  },
+  {
+    part_name: "尻尾",
+    slash: 45,
+    blunt: 30,
+    shot: 45,
+    fire: 0,
+    water: 0,
+    thunder: 35,
+    dragon: 0,
+    ice: 0,
+    stun: 0
+  },
+  {
+    part_name: "翼",
+    slash: 25,
+    blunt: 25,
+    shot: 10,
+    fire: 0,
+    water: 0,
+    thunder: 0,
+    dragon: 0,
+    ice: 0,
+    stun: 0
+  },
+  {
+    part_name: "脚",
+    slash: 20,
+    blunt: 20,
+    shot: 20,
+    fire: 0,
+    water: 0,
+    thunder: 0,
+    dragon: 0,
+    ice: 0,
+    stun: 0
+  }
+]
+
+hitzones.each do |hitzone_data|
+  variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+
+# イャンガルルガ G級
+
+g_variant = monster.monster_variants.find_or_create_by!(name: "G級")
+
+g_hitzones = [
+  {
+    part_name: "頭",
+    slash: 55,
+    blunt: 50,
+    shot: 60,
+    fire: 0,
+    water: 30,
+    thunder: 0,
+    dragon: 5,
+    ice: 10,
+    stun: 100
+  },
+  {
+    part_name: "首",
+    slash: 40,
+    blunt: 40,
+    shot: 30,
+    fire: 0,
+    water: 30,
+    thunder: 0,
+    dragon: 5,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "背中",
+    slash: 10,
+    blunt: 10,
+    shot: 10,
+    fire: 5,
+    water: 70,
+    thunder: 5,
+    dragon: 15,
+    ice: 15,
+    stun: 0
+  },
+  {
+    part_name: "腹",
+    slash: 10,
+    blunt: 10,
+    shot: 60,
+    fire: 15,
+    water: 40,
+    thunder: 15,
+    dragon: 30,
+    ice: 30,
+    stun: 0
+  },
+  {
+    part_name: "尻尾",
+    slash: 50,
+    blunt: 10,
+    shot: 10,
+    fire: 5,
+    water: 40,
+    thunder: 5,
+    dragon: 15,
+    ice: 20,
+    stun: 0
+  },
+  {
+    part_name: "翼",
+    slash: 10,
+    blunt: 40,
+    shot: 10,
+    fire: 0,
+    water: 30,
+    thunder: 0,
+    dragon: 5,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "脚",
+    slash: 35,
+    blunt: 35,
+    shot: 35,
+    fire: 0,
+    water: 15,
+    thunder: 0,
+    dragon: 5,
+    ice: 10,
+    stun: 0
+  }
+]
+
+g_hitzones.each do |hitzone_data|
   g_variant.hitzones.find_or_create_by!(
     part_name: hitzone_data[:part_name]
   ) do |hitzone|
@@ -457,4 +765,7 @@ g_hitzones.each do |hitzone_data|
   end
 end
 
+
 puts "リオレウスの肉質データを登録しました！"
+puts "イャンガルルガの肉質データを登録しました！"
+
