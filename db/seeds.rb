@@ -1075,3 +1075,504 @@ end
 puts "リオレウスの肉質データを登録しました！"
 puts "イャンガルルガの肉質データを登録しました！"
 puts "イャンクックの肉質データを登録しました！"
+
+# ========================================
+# 状態異常データ登録
+# ========================================
+
+def register_status_resistances(variant, data)
+  data.each do |status_data|
+    variant.status_resistances
+      .find_or_initialize_by(status: status_data[:status])
+      .update!(status_data)
+  end
+end
+
+# ========================================
+# リオレウス 原種 状態異常
+# ========================================
+
+monster = Monster.find_by!(name: "リオレウス")
+variant = monster.monster_variants.find_by!(name: "原種")
+
+register_status_resistances(variant, [
+  {
+    status: "毒",
+    initial_resistance: 200,
+    resistance_increase: 100,
+    increase_count: 3,
+    resistance_decrease: 10,
+    decrease_interval: 10,
+    duration: 60,
+    capture_rate: 100,
+    damage: 20,
+    immune: false
+  }
+])
+
+# ========================================
+# イャンガルルガ 状態異常
+# ========================================
+
+monster = Monster.find_by!(name: "イャンガルルガ")
+
+# イャンガルルガ 原種
+variant = monster.monster_variants.find_by!(name: "原種")
+
+register_status_resistances(variant, [
+  {
+    status: "毒",
+  # 初期耐性値
+  initial_resistance: 200,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 100,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 15,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: true
+},
+  {
+    status: "麻痺",
+# 初期耐性値
+  initial_resistance: 200,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 100,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 15,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+  {
+    status: "睡眠",
+# 初期耐性値
+  initial_resistance: 150,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 25,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 20,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+  {
+    status: "爆破",
+# 初期耐性値
+  initial_resistance: 350,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 250,
+
+  # 耐性上昇回数
+  increase_count: 12,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 0,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 0,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 0,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 200,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+  {
+    status: "気絶",
+# 初期耐性値
+  initial_resistance: 150,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 75,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 10,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+])
+
+# ========================================
+# イャンガルルガ 変種
+# ========================================
+
+monster = Monster.find_by!(name: "イャンガルルガ")
+variant = monster.monster_variants.find_by!(name: "変種")
+
+register_status_resistances(variant, [
+  {
+    status: "毒",
+  # 初期耐性値
+  initial_resistance: 200,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 100,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 15,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: true
+},
+  {
+    status: "麻痺",
+# 初期耐性値
+  initial_resistance: 200,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 100,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 15,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+  {
+    status: "睡眠",
+# 初期耐性値
+  initial_resistance: 150,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 25,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 20,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+  {
+    status: "爆破",
+# 初期耐性値
+  initial_resistance: 350,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 250,
+
+  # 耐性上昇回数
+  increase_count: 12,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 0,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 0,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 0,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 200,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+  {
+    status: "気絶",
+# 初期耐性値
+  initial_resistance: 150,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 75,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 10,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+])
+
+
+# ========================================
+# イャンガルルガ G級
+# ========================================
+
+variant = monster.monster_variants.find_by!(name: "G級")
+
+register_status_resistances(variant, [
+  {
+    status: "毒",
+  # 初期耐性値
+  initial_resistance: 200,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 100,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 15,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: true
+},
+  {
+    status: "麻痺",
+# 初期耐性値
+  initial_resistance: 400,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 400,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 10,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+  {
+    status: "睡眠",
+# 初期耐性値
+  initial_resistance: 350,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 350,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 20,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+  {
+    status: "爆破",
+# 初期耐性値
+  initial_resistance: 600,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 400,
+
+  # 耐性上昇回数
+  increase_count: 12,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 0,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 0,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 0,
+
+  # 蓄積値の蓄積率
+  capture_rate: 100,
+
+  # 状態異常によるダメージ
+  damage: 300,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+  {
+    status: "気絶",
+# 初期耐性値
+  initial_resistance: 250,
+
+  # 1回ごとの耐性上昇値
+  resistance_increase: 100,
+
+  # 耐性上昇回数
+  increase_count: 4,
+
+  # 時間経過による耐性減少値
+  resistance_decrease: 10,
+
+  # 耐性が減少する間隔（秒）
+  decrease_interval: 5,
+
+  # 状態異常になった際の持続時間（秒）
+  duration: 10,
+
+  # 蓄積値の蓄積率
+  capture_rate: 0,
+
+  # 状態異常によるダメージ
+  damage: 0,
+
+  # 状態異常が無効ならtrue
+  immune: false
+},
+])

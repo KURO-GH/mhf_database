@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_08_18_120027) do
+ActiveRecord::Schema[7.0].define(version: 2026_08_20_100425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,24 @@ ActiveRecord::Schema[7.0].define(version: 2026_08_18_120027) do
     t.integer "sort_order"
   end
 
+  create_table "status_resistances", force: :cascade do |t|
+    t.bigint "monster_variant_id", null: false
+    t.string "status"
+    t.integer "initial_resistance"
+    t.integer "resistance_increase"
+    t.integer "increase_count"
+    t.integer "resistance_decrease"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "capture_rate"
+    t.integer "damage"
+    t.boolean "immune", default: false, null: false
+    t.integer "decrease_interval"
+    t.index ["monster_variant_id"], name: "index_status_resistances_on_monster_variant_id"
+  end
+
   add_foreign_key "hitzones", "monster_variants"
   add_foreign_key "monster_variants", "monsters"
+  add_foreign_key "status_resistances", "monster_variants"
 end

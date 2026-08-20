@@ -27,7 +27,10 @@ class MonstersController < ApplicationController
     variant_name = params[:variant] || "原種"
 
     @variant = @monster.monster_variants.find_by!(name: variant_name)
+
     @hitzones = @variant.hitzones
+    @status_resistances = @variant.status_resistances
   end
 
 end
+

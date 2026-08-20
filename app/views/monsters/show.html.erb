@@ -12,6 +12,8 @@
 
 <h3><%= @variant.name %></h3>
 
+<h4>肉質</h4>
+
 <table border="1">
   <thead>
     <tr>
@@ -41,6 +43,42 @@
         <td><%= hitzone.dragon %></td>
         <td><%= hitzone.ice %></td>
         <td><%= hitzone.stun %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h4>状態異常</h4>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>状態異常</th>
+      <th>初期耐性</th>
+      <th>耐性上昇</th>
+      <th>上昇回数</th>
+      <th>耐性減少</th>
+      <th>減少間隔</th>
+      <th>持続時間</th>
+      <th>蓄積率</th>
+      <th>ダメージ</th>
+      <th>無効</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @status_resistances.each do |status| %>
+      <tr>
+        <td><%= status.status %></td>
+        <td><%= status.initial_resistance %></td>
+        <td><%= status.resistance_increase %></td>
+        <td><%= status.increase_count %></td>
+        <td><%= status.resistance_decrease %></td>
+        <td><%= status.decrease_interval %></td>
+        <td><%= status.duration %></td>
+        <td><%= status.capture_rate %></td>
+        <td><%= status.damage %></td>
+        <td><%= status.immune ? "○" : "－" %></td>
       </tr>
     <% end %>
   </tbody>
