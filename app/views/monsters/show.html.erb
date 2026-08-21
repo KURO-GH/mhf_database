@@ -3,11 +3,13 @@
 <h2><%= @monster.name %></h2>
 
 <p>
-  <%= link_to "原種", monster_path(@monster, variant: "原種") %>
-  |
-  <%= link_to "変種", monster_path(@monster, variant: "変種") %>
-  |
-  <%= link_to "G級", monster_path(@monster, variant: "G級") %>
+  <% @monster.monster_variants.each_with_index do |variant, index| %>
+    <% if index > 0 %>
+      |
+    <% end %>
+
+    <%= link_to variant.name, monster_path(@monster, variant: variant.name) %>
+  <% end %>
 </p>
 
 <h3><%= @variant.name %></h3>
