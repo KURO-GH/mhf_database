@@ -1567,7 +1567,7 @@ register_status_resistances(variant, [
   duration: 10,
 
   # 蓄積値の蓄積率
-  capture_rate: 0,
+  capture_rate: 100,
 
   # 状態異常によるダメージ
   damage: 0,
@@ -1575,4 +1575,219 @@ register_status_resistances(variant, [
   # 状態異常が無効ならtrue
   immune: false
 },
+])
+
+# ========================================
+# イャンクック 状態異常
+# ========================================
+
+monster = Monster.find_by!(name: "イャンクック")
+
+# ========================================
+# イャンクック 原種
+# ========================================
+
+variant = monster.monster_variants.find_by!(name: "原種")
+
+register_status_resistances(variant, [
+  {
+    status: "毒",
+    initial_resistance: 100,
+    resistance_increase: 50,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 60,
+    capture_rate: 0,
+    damage: 20,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 100,
+    resistance_increase: 65,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 0,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 110,
+    resistance_increase: 25,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 30,
+    capture_rate: 0,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 350,
+    resistance_increase: 250,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 0,
+    damage: 200,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 100,
+    resistance_increase: 65,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 0,
+    damage: 0,
+    immune: false
+  }
+])
+
+
+# ========================================
+# イャンクック 変種
+# ========================================
+
+variant = monster.monster_variants.find_by!(name: "変種")
+
+register_status_resistances(variant, [
+  {
+    status: "毒",
+    initial_resistance: 100,
+    resistance_increase: 50,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 60,
+    capture_rate: 0,
+    damage: 20,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 100,
+    resistance_increase: 65,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 0,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 110,
+    resistance_increase: 25,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 30,
+    capture_rate: 0,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 350,
+    resistance_increase: 250,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 0,
+    damage: 200,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 100,
+    resistance_increase: 65,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 0,
+    damage: 0,
+    immune: false
+  }
+])
+
+
+# ========================================
+# イャンクック G級
+# ========================================
+
+variant = monster.monster_variants.find_by!(name: "G級")
+
+register_status_resistances(variant, [
+  {
+    status: "毒",
+    initial_resistance: 300,
+    resistance_increase: 300,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 60,
+    capture_rate: 0,
+    damage: 30,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 300,
+    resistance_increase: 300,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 0,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 300,
+    resistance_increase: 300,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 30,
+    capture_rate: 0,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 600,
+    resistance_increase: 400,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 0,
+    damage: 300,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 100,
+    resistance_increase: 165,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 0,
+    damage: 0,
+    immune: false
+  }
 ])
