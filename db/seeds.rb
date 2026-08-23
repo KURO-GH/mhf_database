@@ -1077,6 +1077,7 @@ puts "イャンガルルガの肉質データを登録しました！"
 puts "イャンクックの肉質データを登録しました！"
 puts "イャンクック亜種の肉質データを登録しました！"
 puts "ゲリョスの肉質データを登録しました！"
+puts "ゲリョス亜種の肉質データを登録しました！"
 
 
 
@@ -2766,6 +2767,497 @@ register_status_resistances(g_variant, [
   {
     status: "気絶",
     initial_resistance: 150,
+    resistance_increase: 100,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  }
+])
+
+# ゲリョス亜種
+monster = Monster.find_by!(name: "ゲリョス亜種")
+
+# ============================================================
+# ゲリョス亜種 原種
+# ============================================================
+
+normal_variant = monster.monster_variants.find_or_create_by!(name: "原種")
+
+normal_hitzones = [
+  {
+    part_name: "頭",
+    slash: 30,
+    blunt: 70,
+    shot: 90,
+    fire: 20,
+    water: 40,
+    thunder: 0,
+    dragon: 10,
+    ice: 20,
+    stun: 100
+  },
+  {
+    part_name: "首",
+    slash: 50,
+    blunt: 25,
+    shot: 50,
+    fire: 10,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "背中",
+    slash: 60,
+    blunt: 30,
+    shot: 20,
+    fire: 10,
+    water: 20,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "腹",
+    slash: 70,
+    blunt: 30,
+    shot: 20,
+    fire: 10,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "尻尾",
+    slash: 80,
+    blunt: 40,
+    shot: 80,
+    fire: 10,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "翼",
+    slash: 50,
+    blunt: 30,
+    shot: 30,
+    fire: 20,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 20,
+    stun: 0
+  },
+  {
+    part_name: "脚",
+    slash: 20,
+    blunt: 20,
+    shot: 30,
+    fire: 10,
+    water: 10,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  }
+]
+
+normal_hitzones.each do |hitzone_data|
+  normal_variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+register_status_resistances(normal_variant, [
+  {
+    status: "毒",
+    initial_resistance: 300,
+    resistance_increase: 75,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 60,
+    capture_rate: 100,
+    damage: 240,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 150,
+    resistance_increase: 50,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 100,
+    resistance_increase: 25,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 50,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 300,
+    resistance_increase: 200,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 100,
+    damage: 500,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 150,
+    resistance_increase: 50,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  }
+])
+
+
+# ============================================================
+# ゲリョス亜種 奇種
+# ============================================================
+
+variant = monster.monster_variants.find_or_create_by!(name: "奇種")
+
+variant_hitzones = [
+  {
+    part_name: "頭",
+    slash: 30,
+    blunt: 50,
+    shot: 50,
+    fire: 10,
+    water: 30,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 100
+  },
+  {
+    part_name: "首",
+    slash: 30,
+    blunt: 25,
+    shot: 40,
+    fire: 10,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "背中",
+    slash: 50,
+    blunt: 30,
+    shot: 20,
+    fire: 10,
+    water: 20,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "腹",
+    slash: 50,
+    blunt: 30,
+    shot: 20,
+    fire: 10,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "尻尾",
+    slash: 60,
+    blunt: 40,
+    shot: 50,
+    fire: 10,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "翼",
+    slash: 40,
+    blunt: 30,
+    shot: 30,
+    fire: 10,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "脚",
+    slash: 30,
+    blunt: 30,
+    shot: 30,
+    fire: 10,
+    water: 10,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  }
+]
+
+variant_hitzones.each do |hitzone_data|
+  variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+register_status_resistances(variant, [
+  {
+    status: "毒",
+    initial_resistance: 350,
+    resistance_increase: 75,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 60,
+    capture_rate: 100,
+    damage: 240,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 180,
+    resistance_increase: 50,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 140,
+    resistance_increase: 25,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 50,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 300,
+    resistance_increase: 200,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 100,
+    damage: 500,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 180,
+    resistance_increase: 50,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  }
+])
+
+
+# ============================================================
+# ゲリョス亜種 Ｇ級
+# ============================================================
+
+g_variant = monster.monster_variants.find_or_create_by!(name: "Ｇ級")
+
+g_hitzones = [
+  {
+    part_name: "頭",
+    slash: 30,
+    blunt: 50,
+    shot: 65,
+    fire: 20,
+    water: 40,
+    thunder: 0,
+    dragon: 10,
+    ice: 20,
+    stun: 100
+  },
+  {
+    part_name: "首",
+    slash: 50,
+    blunt: 30,
+    shot: 35,
+    fire: 10,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "背中",
+    slash: 40,
+    blunt: 30,
+    shot: 20,
+    fire: 10,
+    water: 20,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "腹",
+    slash: 40,
+    blunt: 30,
+    shot: 20,
+    fire: 5,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "尻尾",
+    slash: 60,
+    blunt: 40,
+    shot: 60,
+    fire: 10,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  },
+  {
+    part_name: "翼",
+    slash: 35,
+    blunt: 30,
+    shot: 30,
+    fire: 15,
+    water: 25,
+    thunder: 0,
+    dragon: 10,
+    ice: 20,
+    stun: 0
+  },
+  {
+    part_name: "脚",
+    slash: 20,
+    blunt: 25,
+    shot: 30,
+    fire: 10,
+    water: 10,
+    thunder: 0,
+    dragon: 10,
+    ice: 10,
+    stun: 0
+  }
+]
+
+g_hitzones.each do |hitzone_data|
+  g_variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+register_status_resistances(g_variant, [
+  {
+    status: "毒",
+    initial_resistance: 500,
+    resistance_increase: 500,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 60,
+    capture_rate: 100,
+    damage: 240,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 300,
+    resistance_increase: 300,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 180,
+    resistance_increase: 250,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 10,
+    duration: 50,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 500,
+    resistance_increase: 300,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 100,
+    damage: 800,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 180,
     resistance_increase: 100,
     increase_count: 4,
     resistance_decrease: 5,
