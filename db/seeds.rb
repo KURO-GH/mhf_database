@@ -1078,7 +1078,7 @@ puts "イャンクックの肉質データを登録しました！"
 puts "イャンクック亜種の肉質データを登録しました！"
 puts "ゲリョスの肉質データを登録しました！"
 puts "ゲリョス亜種の肉質データを登録しました！"
-
+puts "ドスイーオスの肉質データを登録しました！"
 
 
 # ========================================
@@ -3262,6 +3262,284 @@ register_status_resistances(g_variant, [
     increase_count: 4,
     resistance_decrease: 5,
     decrease_interval: 10,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  }
+])
+
+# ============================================================
+# ドスイーオス
+# ============================================================
+
+monster = Monster.find_by!(name: "ドスイーオス")
+
+# ============================================================
+# ドスイーオス 原種
+# ============================================================
+
+normal_variant = monster.monster_variants.find_or_create_by!(name: "原種")
+
+normal_hitzones = [
+  {
+    part_name: "全身",
+    slash: 80,
+    blunt: 80,
+    shot: 80,
+    fire: 20,
+    water: 30,
+    thunder: 30,
+    dragon: 10,
+    ice: 10,
+    stun: 100
+  }
+]
+
+normal_hitzones.each do |hitzone_data|
+  normal_variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+register_status_resistances(normal_variant, [
+  {
+    status: "毒",
+    initial_resistance: 200,
+    resistance_increase: 75,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 30,
+    capture_rate: 100,
+    damage: 60,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 80,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 75,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 30,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 350,
+    resistance_increase: 250,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 100,
+    damage: 200,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 110,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  }
+])
+
+
+# ============================================================
+# ドスイーオス 変種
+# ============================================================
+
+variant = monster.monster_variants.find_or_create_by!(name: "変種")
+
+variant_hitzones = [
+  {
+    part_name: "全身",
+    slash: 75,
+    blunt: 70,
+    shot: 45,
+    fire: 10,
+    water: 5,
+    thunder: 10,
+    dragon: 0,
+    ice: 15,
+    stun: 100
+  }
+]
+
+variant_hitzones.each do |hitzone_data|
+  variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+register_status_resistances(variant, [
+  {
+    status: "毒",
+    initial_resistance: 200,
+    resistance_increase: 75,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 30,
+    capture_rate: 100,
+    damage: 60,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 80,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 75,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 30,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 350,
+    resistance_increase: 250,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 100,
+    damage: 200,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 110,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  }
+])
+
+
+# ============================================================
+# ドスイーオス Ｇ級
+# ============================================================
+
+g_variant = monster.monster_variants.find_or_create_by!(name: "Ｇ級")
+
+g_hitzones = [
+  {
+    part_name: "全身",
+    slash: 50,
+    blunt: 50,
+    shot: 50,
+    fire: 10,
+    water: 30,
+    thunder: 30,
+    dragon: 10,
+    ice: 5,
+    stun: 100
+  }
+]
+
+g_hitzones.each do |hitzone_data|
+  g_variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+register_status_resistances(g_variant, [
+  {
+    status: "毒",
+    initial_resistance: 400,
+    resistance_increase: 400,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 30,
+    capture_rate: 100,
+    damage: 180,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 250,
+    resistance_increase: 250,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 300,
+    resistance_increase: 300,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 30,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 600,
+    resistance_increase: 400,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 100,
+    damage: 300,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 200,
+    resistance_increase: 150,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
     duration: 10,
     capture_rate: 100,
     damage: 0,
