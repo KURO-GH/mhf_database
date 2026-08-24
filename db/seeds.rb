@@ -1080,6 +1080,8 @@ puts "ゲリョスの肉質データを登録しました！"
 puts "ゲリョス亜種の肉質データを登録しました！"
 puts "ドスイーオスの肉質データを登録しました！"
 puts "ドスゲネポスの肉質データを登録しました！"
+puts "ドスランポスの肉質データを登録しました！"
+
 
 # ========================================
 # 状態異常データ登録
@@ -3825,3 +3827,280 @@ register_status_resistances(g_variant, [
   }
 ])
 
+# ============================================================
+# ドスランポス
+# ============================================================
+
+monster = Monster.find_by!(name: "ドスランポス")
+
+# ============================================================
+# ドスランポス 原種
+# ============================================================
+
+normal_variant = monster.monster_variants.find_or_create_by!(name: "原種")
+
+normal_hitzones = [
+  {
+    part_name: "全身",
+    slash: 100,
+    blunt: 100,
+    shot: 100,
+    fire: 50,
+    water: 50,
+    thunder: 50,
+    dragon: 10,
+    ice: 60,
+    stun: 100
+  }
+]
+
+normal_hitzones.each do |hitzone_data|
+  normal_variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+register_status_resistances(normal_variant, [
+  {
+    status: "毒",
+    initial_resistance: 100,
+    resistance_increase: 25,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 60,
+    capture_rate: 100,
+    damage: 120,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 80,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 70,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 15,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 300,
+    resistance_increase: 200,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 100,
+    damage: 500,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 80,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  }
+])
+
+
+# ============================================================
+# ドスランポス 変種
+# ============================================================
+
+variant = monster.monster_variants.find_or_create_by!(name: "変種")
+
+variant_hitzones = [
+  {
+    part_name: "全身",
+    slash: 50,
+    blunt: 60,
+    shot: 40,
+    fire: 20,
+    water: 5,
+    thunder: 10,
+    dragon: 0,
+    ice: 5,
+    stun: 100
+  }
+]
+
+variant_hitzones.each do |hitzone_data|
+  variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+register_status_resistances(variant, [
+  {
+    status: "毒",
+    initial_resistance: 100,
+    resistance_increase: 25,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 60,
+    capture_rate: 100,
+    damage: 120,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 80,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 70,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 15,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 300,
+    resistance_increase: 200,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 100,
+    damage: 500,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 80,
+    resistance_increase: 15,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  }
+])
+
+
+# ============================================================
+# ドスランポス Ｇ級
+# ============================================================
+
+g_variant = monster.monster_variants.find_or_create_by!(name: "Ｇ級")
+
+g_hitzones = [
+  {
+    part_name: "全身",
+    slash: 60,
+    blunt: 60,
+    shot: 60,
+    fire: 20,
+    water: 20,
+    thunder: 20,
+    dragon: 10,
+    ice: 30,
+    stun: 100
+  }
+]
+
+g_hitzones.each do |hitzone_data|
+  g_variant.hitzones.find_or_initialize_by(
+    part_name: hitzone_data[:part_name]
+  ).update!(hitzone_data)
+end
+
+register_status_resistances(g_variant, [
+  {
+    status: "毒",
+    initial_resistance: 300,
+    resistance_increase: 300,
+    increase_count: 4,
+    resistance_decrease: 10,
+    decrease_interval: 5,
+    duration: 60,
+    capture_rate: 100,
+    damage: 720,
+    immune: false
+  },
+  {
+    status: "麻痺",
+    initial_resistance: 250,
+    resistance_increase: 250,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "睡眠",
+    initial_resistance: 300,
+    resistance_increase: 300,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 30,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  },
+  {
+    status: "爆破",
+    initial_resistance: 500,
+    resistance_increase: 300,
+    increase_count: 12,
+    resistance_decrease: 0,
+    decrease_interval: 0,
+    duration: 0,
+    capture_rate: 100,
+    damage: 800,
+    immune: false
+  },
+  {
+    status: "気絶",
+    initial_resistance: 200,
+    resistance_increase: 200,
+    increase_count: 4,
+    resistance_decrease: 5,
+    decrease_interval: 20,
+    duration: 10,
+    capture_rate: 100,
+    damage: 0,
+    immune: false
+  }
+])
